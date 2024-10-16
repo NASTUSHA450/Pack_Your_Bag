@@ -1,3 +1,202 @@
-body {
-  background: pink;
+@font-face {
+  font-family: "tt-wellingtons-black";
+  src: local(""), url("./fonts/TTWellingtons-Black.woff"),
+    url("./fonts/TTWellingtons-Black.woff2");
+}
+.hide {
+  opacity: 0;
+  /* animation: fade-out 1s ease; */
+}
+.pointer {
+  cursor: pointer;
+}
+
+.banner {
+  background: #ffd749;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.banner .wrapper {
+  position: relative;
+  height: 100%;
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "tt-wellingtons-black";
+}
+.speach-bubble-appear {
+  animation: speach-bubble-animation 1s ease;
+}
+.banner .wrapper .speach-bubble {
+  position: absolute;
+  right: -25%;
+  bottom: 9%;
+}
+.banner .wrapper #restart {
+  position: absolute;
+  bottom: 5%;
+  background: white;
+  color: #ffd749;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+  border: none;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.show {
+  animation: backpack-show-animation 1s ease;
+}
+.center {
+  animation: backpack-center-animation 1s ease;
+}
+.banner .wrapper .backpack {
+  position: absolute;
+  z-index: 0;
+  top: 10%;
+  transform: translateY(170px);
+}
+.banner .wrapper .backpack.done {
+  transform: translateY(85px) rotate(11deg);
+}
+.banner .wrapper .score-wrapper {
+  color: #444444;
+  max-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 215px;
+  font-size: 20px;
+}
+.score-appear {
+  animation: score-apper-animation 1s ease;
+}
+.banner .wrapper .score-wrapper p {
+  margin-top: 12%;
+}
+.banner .wrapper .score-wrapper .score {
+  color: #f8a4a4;
+  font-size: 30px;
+  text-shadow: -1px -1px 0 #454444, 1px -1px 0 #454444, -1px 1px 0 #454444,
+    1px 1px 0 #454444;
+}
+.banner .wrapper .ready {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  font-size: 30px;
+  text-align: center;
+  color: #444444;
+}
+.object-appear {
+  animation: object-appear-animation 1s ease;
+}
+.fade-out {
+  animation: fade-out 1s ease;
+}
+.banner .wrapper #objectsContainer .object {
+  position: absolute;
+  z-index: 2;
+  top: 12%;
+  left: 10%;
+
+  cursor: pointer;
+}
+.banner .wrapper #objectsContainer .object.chosen {
+  opacity: 0.4;
+}
+.banner .wrapper #objectsContainer .object.pencil {
+  left: 60%;
+}
+.banner .wrapper #objectsContainer .object.usb {
+  top: 27%;
+  left: 15%;
+}
+.banner .wrapper #objectsContainer .object.notebook {
+  top: 30%;
+  left: 60%;
+}
+.banner .wrapper #objectsContainer .object.pen {
+  top: 42%;
+  left: 8%;
+}
+
+@keyframes score-apper-animation {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+@keyframes speach-bubble-animation {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+    transform: rotate(40deg);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes backpack-show-animation {
+  0% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  30% {
+    transform: translateY(40px);
+    transform: scale(0.9);
+  }
+  50%,
+  60% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(170px);
+  }
+}
+@keyframes backpack-center-animation {
+  0% {
+  }
+  100% {
+    transform: translateY(85px) rotate(11deg);
+  }
+}
+@keyframes object-appear-animation {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
 }

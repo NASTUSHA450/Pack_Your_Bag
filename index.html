@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-</head>
-<body>
-    <div id="test">hello</div>
+  </head>
+  <body>
+    <div class="banner">
+      <div class="test"></div>
+      <div class="wrapper">
+        <div class="score-wrapper score-appear">
+          <p>ГОТОВНОСТЬ</p>
+          <div class="score"><span id="scoreCounter">0</span>/5</div>
+        </div>
+        <div class="ready hide">ТЕПЕРЬ <br> ТЫ ГОТОВ!</div>
+        <div id="objectsContainer"></div>
+        <div class="backpack show">
+          <img src="./img/bagpack.png" alt="bagpack" />
+        </div>
+        <button id="restart" class="hide">Попробуй еще</button>
+        <div class="speach-bubble speach-bubble-appear">
+          <img src="./img/speechbulb.png" alt="speach-bubble" />
+        </div>
+      </div>
+    </div>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
