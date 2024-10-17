@@ -8,10 +8,12 @@
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
   /* pointer-events: none; */
 }
-*::selection {
+img::selection {
   background: transparent;
+  color: #000;
 }
 .hide {
   opacity: 0;
