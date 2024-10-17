@@ -8,7 +8,7 @@
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 *::selection {
   background: transparent;
@@ -114,6 +114,9 @@
   left: 10%;
 
   cursor: pointer;
+}
+.banner .wrapper #objectsContainer .object::selection {
+  background: transparent;
 }
 .banner .wrapper #objectsContainer .object.chosen {
   opacity: 0.4;
