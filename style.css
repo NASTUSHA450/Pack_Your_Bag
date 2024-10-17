@@ -118,7 +118,7 @@ img::selection {
   background: transparent;
 }
 .banner .wrapper #objectsContainer .object.chosen {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 .banner .wrapper #objectsContainer .object.pencil {
   left: 60%;
