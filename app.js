@@ -7,46 +7,54 @@ const winnerMessage = document.querySelector(".ready");
 const restart = document.getElementById("restart");
 
 const objects = [
-  { name: "nintendo" },
-  { name: "pencil" },
-  { name: "usb" },
-  { name: "notebook" },
-  { name: "pen" },
+  { id: "0", name: "nintendo" },
+  { id: "1", name: "pencil" },
+  { id: "2", name: "usb" },
+  { id: "3", name: "notebook" },
+  { id: "4", name: "pen" },
 ];
 let score = 0;
-window.addEventListener("load", function () {
-  startGame();
-});
+window.addEventListener(
+  "load",
+  function () {
+    startGame();
+  },
+  { once: true }
+);
 
 function startGame() {
+  // remove game-completed classes
   backpack.classList.remove("done");
   backpack.classList.remove("center");
   backpack.classList.add("show");
   let score = 0;
+
+  //map items
   objects.map((object, id) => {
     let el = document.createElement("div");
     el.classList.add("object", "object-appear", object.name);
     el.innerHTML = `<img src="./img/${object.name}.png" alt="${object.name}">`;
-    //onclick
+
+    //add onclick to items
     el.addEventListener(
       "click",
-      function (e) {
+      () => {
         el.classList.add("chosen");
         score++;
         scoreCounter.textContent = `${score}`;
         if (score == 5) {
           gameCompleted();
-          //   try with for loop so you can use
-          // break;
+          return;
         }
       },
       { once: true }
     );
-    //display elements
-    setTimeout(function () {
+    //display items with delay
+    setTimeout(() => {
       objectsContainer.appendChild(el);
     }, (id + 1) * 150);
   });
+  //add start-game classes
   winnerMessage.classList.add("hide");
   restart.classList.add("hide");
   restart.classList.remove("pointer");
@@ -58,7 +66,9 @@ function startGame() {
 }
 
 function gameCompleted() {
-  let items = Array.from(document.querySelectorAll(".object"));
+  // get all items
+  const items = Array.from(document.querySelectorAll(".object"));
+  //remove start-game classes
   items.map((item) => {
     item.classList.remove("object-appear");
     item.classList.add("fade-out");
@@ -68,7 +78,6 @@ function gameCompleted() {
   scoreWrapper.classList.remove("score-appear");
   fadeOut(speachBubble);
   fadeOut(scoreWrapper);
-
   backpack.classList.toggle("show");
   backpack.classList.toggle("center");
   setTimeout(function () {
@@ -88,9 +97,13 @@ function gameCompleted() {
   );
   restart.classList.remove("hide");
   restart.classList.add("pointer");
-  restart.addEventListener("click", () => {
-    startGame();
-  });
+  restart.addEventListener(
+    "click",
+    () => {
+      startGame();
+    },
+    { once: true }
+  );
 }
 
 function fadeOut(el) {
@@ -99,4 +112,3 @@ function fadeOut(el) {
     duration: 1000,
   });
 }
-console.log(objects);
