@@ -3,6 +3,13 @@
   src: local(""), url("./fonts/TTWellingtons-Black.woff"),
     url("./fonts/TTWellingtons-Black.woff2");
 }
+* {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
 *::selection {
   background: transparent;
 }
